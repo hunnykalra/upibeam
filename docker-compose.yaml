@@ -1,0 +1,35 @@
+version: '3'
+networks:
+  dnb:
+    driver: bridge
+
+volumes:
+  dnbmongo_data: {}  
+ 
+
+
+services:
+  dnbmongo:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+      MONGO_INITDB_DATABASE: dnb
+    ports:
+      - '27017-27019:27017-27019'
+    volumes:
+      - ./mongodb/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - dnbmongo_data:/data/db
+    networks:
+      - dnb
+      
+  upibeam:
+    image: upi-beam
+    networks:
+      - dnb
+    ports:
+      - "8008:8008"
+      - "9099:9099"
+    depends_on:
+      - dnbmongo
+      
