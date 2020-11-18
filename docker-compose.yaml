@@ -23,8 +23,8 @@ services:
     networks:
       - dnb
       
-  upibeam:
-    image: upi-beam
+  unibeam:
+    image: uni-beam
     networks:
       - dnb
     ports:

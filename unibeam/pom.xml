@@ -8,8 +8,8 @@
 		<version>2.4.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.upibeam.practice</groupId>
-	<artifactId>UpiBeam</artifactId>
+	<groupId>com.unibeam.practice</groupId>
+	<artifactId>UniBeam</artifactId>
 	<version>0.0.1</version>
 	<name>UpiBeam</name>
 	<description>Demo project for UpiBeam</description>
